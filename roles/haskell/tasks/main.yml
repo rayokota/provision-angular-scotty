@@ -1,0 +1,44 @@
+---
+- name: Install libgmp
+  apt: pkg=libgmp3c2 
+
+- name: Install build-essential
+  apt: pkg=build-essential
+ 
+- name: Install cabal-install
+  apt: pkg=haskell-platform
+ 
+- name: Get GHC
+  command: chdir=/tmp wget http://www.haskell.org/ghc/dist/7.6.3/ghc-7.6.3-x86_64-unknown-linux.tar.bz2
+  sudo: false
+ 
+- name: Untar GHC
+  command: chdir=/tmp tar -xvf ghc-7.6.3-x86_64-unknown-linux.tar.bz2
+  sudo: false
+ 
+- name: Configure GHC
+  command: chdir=/tmp/ghc-7.6.3 ./configure
+  sudo: false
+ 
+- name: Make and install GHC
+  command: chdir=/tmp/ghc-7.6.3 make install
+ 
+#- name: Install cabal-install
+#  apt: pkg=cabal-install
+ 
+#- name: Install zlib-dev
+#  apt: pkg=libghc-zlib-dev
+ 
+#- name: Install zlib-bindings-dev
+#  apt: pkg=libghc-zlib-bindings-dev
+ 
+- name: Update cabal
+  command: cabal update
+  sudo: false
+ 
+- name: Install cabal
+  command: cabal install cabal cabal-install
+  sudo: false
+ 
+- name: Link cabal
+  command: ln -s /home/ubuntu/.cabal/bin/cabal /usr/local/bin/cabal
