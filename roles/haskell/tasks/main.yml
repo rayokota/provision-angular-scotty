@@ -5,7 +5,7 @@
 - name: Install build-essential
   apt: pkg=build-essential
  
-- name: Install cabal-install
+- name: Install haskell-platform
   apt: pkg=haskell-platform
  
 - name: Get GHC
@@ -22,15 +22,6 @@
  
 - name: Make and install GHC
   command: chdir=/tmp/ghc-7.6.3 make install
- 
-#- name: Install cabal-install
-#  apt: pkg=cabal-install
- 
-#- name: Install zlib-dev
-#  apt: pkg=libghc-zlib-dev
- 
-#- name: Install zlib-bindings-dev
-#  apt: pkg=libghc-zlib-bindings-dev
  
 - name: Update cabal
   command: cabal update
