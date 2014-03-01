@@ -9,7 +9,7 @@
   apt: pkg=haskell-platform
  
 - name: Get GHC
-  command: chdir=/tmp wget http://www.haskell.org/ghc/dist/7.6.3/ghc-7.6.3-x86_64-unknown-linux.tar.bz2
+  get_url: dest=/tmp url=http://www.haskell.org/ghc/dist/7.6.3/ghc-7.6.3-x86_64-unknown-linux.tar.bz2
   sudo: false
  
 - name: Untar GHC
@@ -32,4 +32,4 @@
   sudo: false
  
 - name: Link cabal
-  command: ln -s /home/ubuntu/.cabal/bin/cabal /usr/local/bin/cabal
+  file: src=/home/ubuntu/.cabal/bin/cabal dest=/usr/local/bin/cabal state=link
