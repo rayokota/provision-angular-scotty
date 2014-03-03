@@ -32,4 +32,4 @@
   sudo: false
  
 - name: Link cabal
-  file: src=/home/ubuntu/.cabal/bin/cabal dest=/usr/local/bin/cabal state=link
+  file: src=~/.cabal/bin/cabal dest=/usr/local/bin/cabal state=link
