@@ -32,4 +32,6 @@
   sudo: false
  
 - name: Link cabal
-  file: src=~/.cabal/bin/cabal dest=/usr/local/bin/cabal state=link
+  #file: src=~/.cabal/bin/cabal dest=/usr/local/bin/cabal state=link
+  shell: homedir=~; sudo ln -s $homedir/.cabal/bin/cabal /usr/local/bin/cabal
+  sudo: false
