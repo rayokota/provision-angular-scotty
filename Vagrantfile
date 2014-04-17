@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
     override.vm.network :forwarded_port, guest: 9000, host: 9000
     override.vm.network :forwarded_port, guest: 9292, host: 9292
     #override.vm.network :private_network, ip: "192.168.222.111"
-    vb.customize ["modifyvm", :id, "--memory", "1024"]
+    vb.customize ["modifyvm", :id, "--memory", "2048"]
   end
 
   # This configuration is for our EC2 instance

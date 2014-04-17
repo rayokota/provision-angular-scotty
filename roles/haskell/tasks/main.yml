@@ -9,19 +9,19 @@
   apt: pkg=haskell-platform
  
 - name: Get GHC
-  get_url: dest=/tmp url=http://www.haskell.org/ghc/dist/7.6.3/ghc-7.6.3-x86_64-unknown-linux.tar.bz2
+  get_url: dest=/tmp url=http://www.haskell.org/ghc/dist/7.8.2/ghc-7.8.2-x86_64-unknown-linux-deb7.tar.bz2
   sudo: false
  
 - name: Untar GHC
-  command: chdir=/tmp tar -xvf ghc-7.6.3-x86_64-unknown-linux.tar.bz2
+  command: chdir=/tmp tar -xvf ghc-7.8.2-x86_64-unknown-linux-deb7.tar.bz2
   sudo: false
  
 - name: Configure GHC
-  command: chdir=/tmp/ghc-7.6.3 ./configure
+  command: chdir=/tmp/ghc-7.8.2 ./configure
   sudo: false
  
 - name: Make and install GHC
-  command: chdir=/tmp/ghc-7.6.3 make install
+  command: chdir=/tmp/ghc-7.8.2 make install
  
 - name: Update cabal
   command: cabal update
